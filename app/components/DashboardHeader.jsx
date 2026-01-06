@@ -17,7 +17,7 @@ const DashboardHeader = ({
     <div className="w-full bg-white overflow-hidden font-sans">
       
       <div 
-        className="h-56 w-full bg-cover bg-center"
+        className="h-56 w-full bg-no-repeat bg-cover bg-center"
         style={{ 
           backgroundImage: `url(${bannerUrl})`,
           backgroundPosition: 'center 50%', 
