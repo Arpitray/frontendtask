@@ -1,5 +1,11 @@
+'use client';
+
 import DashboardHeader from "./components/DashboardHeader";
 import OrgOverview from "./components/OrgOverview";
+import TeamCard from "./components/TeamCard";
+import InfoCard from "./components/InfoCard";
+import MembershipCard from "./components/MembershipCard";
+import { Building2, LayoutGrid } from "lucide-react";
 
 export default function Home() {
   const userData = {
@@ -18,24 +24,96 @@ export default function Home() {
     about: "DeepThought - Education Technology"
   };
 
-  return (
-    <main className="min-h-screen bg-slate-50 p-4 md:p-8">
-      <div className="max-w-6xl mx-auto space-y-8">
-        <DashboardHeader 
-          name={userData.name}
-          id={userData.id}
-          email={userData.email}
-          bannerUrl={userData.bannerUrl}
-          profileUrl={userData.profileUrl}
-        />
+  const teamMembers = [
+    {
+      name: "Hariharan Anand",
+      role: "CTO",
+      email: "arpitray.me",
+      phone: "8412954339"
+    }
+  ];
 
-        <OrgOverview 
-          orgName={orgData.orgName}
-          website={orgData.website}
-          privileges={orgData.privileges}
-          sector={orgData.sector}
-          about={orgData.about}
-        />
+  const locations = [
+    {
+      label: "Hyderabad, TG",
+      value: "Street No. 2, Hyderabad, TG 500007, India"
+    }
+  ];
+
+  return (
+    <main className="min-h-screen bg-[#F8FAFC] p-4 md:p-8">
+      <div className="max-w-6xl mx-auto bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
+        <div className="p-0 space-y-0">
+          <DashboardHeader 
+            name={userData.name}
+            id={userData.id}
+            email={userData.email}
+            bannerUrl={userData.bannerUrl}
+            profileUrl={userData.profileUrl}
+          />
+          
+          <div className="px-8 pb-12 space-y-12">
+            <OrgOverview 
+              orgName={orgData.orgName}
+              website={orgData.website}
+              privileges={orgData.privileges}
+              sector={orgData.sector}
+              about={orgData.about}
+            />
+
+            {/* Leadership Section */}
+            <section className="space-y-4">
+              <h2 className="text-[10px] font-black text-slate-500 uppercase tracking-widest px-1">Leadership Team</h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {teamMembers.map((member, idx) => (
+                  <TeamCard key={idx} {...member} />
+                ))}
+              </div>
+            </section>
+
+            {/* Memberships Section */}
+            <section className="space-y-6">
+              <div className="flex items-start gap-4 p-4 -ml-4">
+                <div className="bg-blue-100 p-2 rounded-lg text-blue-600">
+                  <LayoutGrid size={20} strokeWidth={2} />
+                </div>
+                <div>
+                  <h2 className="text-sm font-bold text-slate-800">Your Memberships</h2>
+                  <p className="text-xs text-slate-400">You have 1 active membership</p>
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <MembershipCard 
+                  type="member" 
+                  joinedDate="January 3, 2026" 
+                  id="2" 
+                  status="active" 
+                />
+              </div>
+            </section>
+
+            {/* Contact Section */}
+            <section className="space-y-4">
+              <h2 className="text-[10px] font-black text-slate-500 uppercase tracking-widest px-1">Locations & Contact</h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <InfoCard 
+                  title="Office Locations"
+                  icon={Building2}
+                  items={locations}
+                />
+                <InfoCard 
+                  title="Email Addresses"
+                  emptyMessage="No email addresses available"
+                />
+                <InfoCard 
+                  title="Phone Numbers"
+                  emptyMessage="No phone numbers available"
+                />
+              </div>
+            </section>
+          </div>
+        </div>
       </div>
     </main>
   );

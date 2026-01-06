@@ -4,20 +4,20 @@ import React from 'react';
 import { Pencil, Mail } from 'lucide-react';
 
 const DashboardHeader = ({ 
-  bannerUrl = "/placeholder-banner.jpg", 
-  profileUrl = "/placeholder-profile.jpg", 
-  name = "User Name", 
-  id = "1", 
-  email = "user@example.com" 
+  bannerUrl, 
+  profileUrl, 
+  name, 
+  id, 
+  email
 }) => {
  
   const btnBase = "px-5 py-2 rounded-lg font-bold text-xs transition-all duration-200 active:scale-95 whitespace-nowrap shadow-sm";
 
   return (
-    <div className="w-full bg-white rounded-xl overflow-hidden border border-gray-200 shadow-sm font-sans mb-8">
+    <div className="w-full bg-white overflow-hidden font-sans">
       
       <div 
-        className="h-44 w-full bg-cover bg-center grayscale-10 "
+        className="h-56 w-full bg-cover bg-center"
         style={{ 
           backgroundImage: `url(${bannerUrl})`,
           backgroundPosition: 'center' 

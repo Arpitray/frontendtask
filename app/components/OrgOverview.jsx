@@ -4,11 +4,11 @@ import React from 'react';
 import { Building2, Globe, User, Briefcase } from 'lucide-react';
 
 const OrgOverview = ({ 
-  orgName = "DeepThought", 
-  website = "https://deepthought.com", 
-  privileges = "Member", 
-  sector = "Education Technology",
-  about = "DeepThought - Education Technology"
+  orgName, 
+  website, 
+  privileges, 
+  sector,
+  about
 }) => {
   return (
     <div className="space-y-6 animate-in fade-in duration-700">
