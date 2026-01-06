@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { Pencil, Mail } from 'lucide-react';
 
 const DashboardHeader = ({ 
   bannerUrl = "/placeholder-banner.jpg", 
@@ -16,10 +17,10 @@ const DashboardHeader = ({
     <div className="w-full bg-white rounded-xl overflow-hidden border border-gray-200 shadow-sm font-sans mb-8">
       
       <div 
-        className="h-44 w-full bg-cover bg-center grayscale-10 hover:grayscale-0 transition-all duration-500"
+        className="h-44 w-full bg-cover bg-center grayscale-10 "
         style={{ 
           backgroundImage: `url(${bannerUrl})`,
-          backgroundPosition: 'center 35%' 
+          backgroundPosition: 'center' 
         }}
       />
       
@@ -28,7 +29,7 @@ const DashboardHeader = ({
           
           
           <div className="relative group">
-            <div className="w-32 h-32 rounded-full border-4 border-white overflow-hidden bg-white shadow-md ring-1 ring-blue-500/20 group-hover:scale-[1.02] transition-transform">
+            <div className="w-32 h-32 rounded-full border-4 border-white overflow-hidden bg-white shadow-md ring-1 ring-blue-500/20 ">
               <img 
                 src={profileUrl} 
                 alt={name} 
@@ -37,10 +38,8 @@ const DashboardHeader = ({
             </div>
             
          
-            <button className="absolute top-12 -right-2 bg-blue-600 p-2 rounded-full border-2 border-white text-white shadow-lg hover:bg-blue-700 hover:rotate-12 transition-all cursor-pointer">
-              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/>
-              </svg>
+            <button className="absolute top-12 -right-2 bg-blue-600 p-2 rounded-full border-2 border-white text-white shadow-lg  cursor-pointer text-xs">
+              <Pencil size={12} strokeWidth={3} />
             </button>
           </div>
 
@@ -55,9 +54,7 @@ const DashboardHeader = ({
             </div>
             
             <div className="flex items-center mt-1 text-slate-400">
-               <svg className="w-3.5 h-3.5 mr-1.5 opacity-70" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-               </svg>
+               <Mail size={14} strokeWidth={2.5} className="mr-1.5 opacity-70" />
                <span className="text-xs font-semibold tracking-tight">{email}</span>
             </div>
           </div>
