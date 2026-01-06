@@ -5,15 +5,16 @@ import OrgOverview from "./components/OrgOverview";
 import TeamCard from "./components/TeamCard";
 import InfoCard from "./components/InfoCard";
 import MembershipCard from "./components/MembershipCard";
-import { Building2, LayoutGrid } from "lucide-react";
+import OrgCard from "./components/OrgCard";
+import { Building2, LayoutGrid, Building } from "lucide-react";
 
 export default function Home() {
   const userData = {
     name: "Arpit",
     id: "2",
     email: "rayarpit72.com",
-    bannerUrl: "https://images.unsplash.com/photo-1505118380757-91f5f5632de0?q=80&w=2544&auto=format&fit=crop",
-    profileUrl: "https://api.dicebear.com/7.x/avataaars/svg?seed=shubham" 
+    bannerUrl: "https://plus.unsplash.com/premium_photo-1680883415316-1a0d97b96478?q=80&w=685&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    profileUrl: "https://images.unsplash.com/photo-1752323365464-192aff757dd9?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
   };
 
   const orgData = {
@@ -26,7 +27,7 @@ export default function Home() {
 
   const teamMembers = [
     {
-      name: "Hariharan Anand",
+      name: "Arpit Ray",
       role: "CTO",
       email: "arpitray.me",
       phone: "8412954339"
@@ -61,7 +62,6 @@ export default function Home() {
               about={orgData.about}
             />
 
-            {/* Leadership Section */}
             <section className="space-y-4">
               <h2 className="text-[10px] font-black text-slate-500 uppercase tracking-widest px-1">Leadership Team</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -71,8 +71,27 @@ export default function Home() {
               </div>
             </section>
 
-            {/* Memberships Section */}
-            <section className="space-y-6">
+           
+
+            <section className="space-y-4">
+              <h2 className="text-[10px] font-black text-slate-500 uppercase tracking-widest px-1">Locations & Contact</h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <InfoCard 
+                  title="Office Locations"
+                  icon={Building2}
+                  items={locations}
+                />
+                <InfoCard 
+                  title="Email Addresses"
+                  emptyMessage="No email addresses available"
+                />
+                <InfoCard 
+                  title="Phone Numbers"
+                  emptyMessage="No phone numbers available"
+                />
+              </div>
+            </section>
+             <section className="space-y-6">
               <div className="flex items-start gap-4 p-4 -ml-4">
                 <div className="bg-blue-100 p-2 rounded-lg text-blue-600">
                   <LayoutGrid size={20} strokeWidth={2} />
@@ -93,22 +112,28 @@ export default function Home() {
               </div>
             </section>
 
-            {/* Contact Section */}
-            <section className="space-y-4">
-              <h2 className="text-[10px] font-black text-slate-500 uppercase tracking-widest px-1">Locations & Contact</h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <InfoCard 
-                  title="Office Locations"
-                  icon={Building2}
-                  items={locations}
-                />
-                <InfoCard 
-                  title="Email Addresses"
-                  emptyMessage="No email addresses available"
-                />
-                <InfoCard 
-                  title="Phone Numbers"
-                  emptyMessage="No phone numbers available"
+        
+            <section className="space-y-6">
+              <div className="flex items-start gap-4 p-4 -ml-4">
+                <div className="bg-blue-100 p-2 rounded-lg text-blue-600">
+                  <Building size={20} strokeWidth={2} />
+                </div>
+                <div>
+                  <h2 className="text-sm font-bold text-slate-800">All Organizations</h2>
+                  <p className="text-xs text-slate-400">You are a member of 1 organization</p>
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-1 gap-6">
+                <OrgCard 
+                  name="DeepThought"
+                  isCurrent={true}
+                  sector="Education Technology"
+                  role="Member"
+                  description="DeepThought - Education Technology"
+                  website="https://deepthought.com"
+                  activeMemberships={1}
+                  memberships={["member"]}
                 />
               </div>
             </section>

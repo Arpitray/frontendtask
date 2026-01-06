@@ -20,7 +20,7 @@ const DashboardHeader = ({
         className="h-56 w-full bg-cover bg-center"
         style={{ 
           backgroundImage: `url(${bannerUrl})`,
-          backgroundPosition: 'center' 
+          backgroundPosition: 'center 50%', 
         }}
       />
       
