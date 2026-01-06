@@ -27,10 +27,10 @@ export default function Home() {
 
   const teamMembers = [
     {
-      name: "Arpit Ray",
+      name: "Tarun",
       role: "CTO",
-      email: "arpitray.me",
-      phone: "8412954339"
+      email: "tarun.me",
+      phone: "XXX-XXX-XXXX",
     }
   ];
 
